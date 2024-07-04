@@ -1,0 +1,497 @@
+:root {
+    --nav_foot_color: rgb(0, 84, 148);
+    --secondary-color: rgb(28, 176, 176);
+    --main-color: rgb(204, 173, 0);
+    --text-color: rgb(0, 191, 255);
+    --background-secondary: rgb(210, 245, 200); /* Azure */
+    --background-main: rgb(34, 34, 34); /* Dark Gray */
+    --background-text: rgb(24, 24, 24); /* Very Dark Gray */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: #171f29;
+}
+
+nav {
+    width: 100%;
+    margin-bottom: 25px;
+    background-color: var(--nav_foot_color);
+    display: flex;
+    border-radius: 20px;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+/* logo */
+nav .logo_imag {
+    display: flex;
+    gap: 5px;
+    transform: translate(20px, 0);
+}
+
+nav .logo_imag h1 {
+    text-shadow: 5px 10px 25px #000;
+    font-size: 32px;
+    color: var(--secondary-color);
+}
+
+nav .logo_imag .first_in_h1 {
+    color: rgb(204, 173, 0);
+}
+
+nav .logo img {
+    width: 40px;
+    height: auto;
+}
+
+/* search */
+
+nav .search_box {
+    margin: 30px 10px;
+    padding: 0 10px;
+    border-radius: 20px;
+    background-color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px black;
+}
+
+nav .search_box input {
+    width: 150px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: all 0.8s;
+    background: transparent;
+}
+
+nav .search_box:hover input {
+    width: 200px;
+}
+
+/* ul */
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 7px;
+    margin: 0 10px;
+    box-shadow: 2px 2px 15px black;
+}
+
+nav ul li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 5px 5px;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+nav ul li:hover {
+    transform: scale(1.055) translate(0, -10px);
+    background-color: #002b57;
+    transition: all 1.7s;
+}
+
+nav ul li:hover a {
+    text-shadow: 2px 2px 15px white;
+    color: gold;
+    transition: all 1.5s;
+}
+
+/* res nav&humb */
+
+nav #Menu_Humb {
+    font-size: 30px;
+    color: var(--secondary-color);
+    display: none;
+    cursor: pointer;
+}
+
+#click {
+    display: none;
+}
+
+@media (max-width:880px) {
+    nav .main_ul {
+        display: none;
+    }
+
+    #click:checked~ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        gap: 10px;
+        right: 40px;
+        top: 50px;
+        background-color: var(--nav_foot_color);
+        border-radius: 10px;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    nav #Menu_Humb {
+        display: block;
+    }
+
+    nav ul li:hover {
+        transform: scale(1.055) translate(-10px, 0);
+    }
+
+    nav .logo_imag h1 {
+        font-size: 24px;
+    }
+
+    nav .logo img {
+        width: 30px;
+        margin-right: 25px;
+    }
+}
+
+/* body */
+
+/* Hero */
+.container {
+    width: 90%;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.container .Home {
+    height: 80vh;
+    width: 100%;
+    background-color: var( --background-main);
+    border-radius: 25px;
+    border: 3px solid var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 40px;
+}
+
+.container .Home h2 {
+    color: var(--main-color);
+    font-size: 42px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #ffffff7a;
+    text-shadow: 0px 15px 40px wheat;
+    position: relative;
+}
+
+/* animate */
+.container .Home h2::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    margin-right: 5px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--background-main);
+    animation: animate_hero_h2 linear 4s 2;
+
+}
+
+@keyframes animate_hero_h2 {
+    0% {
+        width: 100%;
+        height: 60px;
+        opacity: 1;
+    }
+
+    50% {
+        width: 50%;
+        height: 60px;
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+/* end animate */
+.container .Home p {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 700;
+    width: 60%;
+    text-shadow: 2px 2px 10px black;
+    line-height: 30px;
+    letter-spacing: 1.3px;
+}
+
+/* all but */
+.container .Home a,
+.container .Mens_clothe .men_words a,
+.container .woman_sections .girls_section a {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    font-size: 22px;
+    margin: 0 5px;
+    font-weight: 900;
+    border-radius: 15px;
+    display:inline-block block;
+    width: fit-content;
+}
+
+.container .Home .blue {
+    background-color: #0a0096;
+    color: white;
+}
+
+.container .Home .blue:hover {
+    background-color: #ffffff;
+    color: #0a0096;
+    transition: all 0.7s;
+}
+
+.container .Home .yellow {
+    background-color: var(--main-color);
+    color: white;
+
+}
+
+.container .Home .yellow:hover {
+    background-color: white;
+    color: var(--main-color);
+    transition: all 0.7s;
+}
+
+/* end hero */
+/* men sections */
+.container .Mens_clothe,
+.container .woman_sections {
+    width: 100%;
+    border: 2px solid var(--secondary-color);
+    background-color: rgba(0, 49, 91, 0.816);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+    padding: 100px 70px;
+}
+
+.container .Mens_clothe .men_image img{
+    border-radius: 50%;
+    height: 450px;
+}
+
+.container .Mens_clothe .men_words,
+.container .woman_sections .girls_section {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.container .Mens_clothe .men_words h2,
+.container .woman_sections .girls_section h2 {
+    color: var(--secondary-color);
+    font-size: 38px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #ffffffe1;
+    text-shadow: 0px 10px 40px rgb(1, 0, 0);
+    padding-bottom: 10px;
+}
+
+.container .Mens_clothe .men_words p
+,.container .woman_sections .girls_section p{
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px black;
+}
+
+.container .Mens_clothe .men_words a:hover {
+    background-color: #0770bb;
+    color: rgb(255, 255, 255);
+    transition: all 0.5s;
+}
+/* second sections */
+.container .woman_sections{
+    background-color: #580a39;
+    border: 3px solid rgb(111, 6, 44);
+}
+.container .woman_sections .girls_section h2{
+    color: #ff0088;
+}
+.container .woman_sections .girls_section p{
+    color: #ff4800e8;
+}
+.container .woman_sections .girls_section a{
+    background-color:rgb(255, 0, 0) ;
+    color: #000;
+}
+.container .woman_sections .girls_section a:hover{
+    background-color: black ;
+    color:red;
+    transition: all 1s;
+}
+.woman_sections .girls_image img {
+    border-radius:50%;
+    height: 450px;
+}
+
+/* footer */
+footer{
+    background-color:var(--nav_foot_color) ;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-top: 4px solid var(--secondary-color);
+}
+
+footer .follow h4{
+    margin-bottom: 10px;
+}
+
+footer .follow i{
+    font-size: 20px;
+}
+
+footer .follow #facebook{
+    color: blue;
+    background-color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+footer .follow #insta{
+    color: rgb(255, 0, 208);
+    border-radius: 100%;
+    cursor: pointer
+}
+
+footer .follow #twitter{
+    color: rgb(0, 174, 255);
+    border-radius: 100%;
+    cursor: pointer
+}
+
+footer .follow #youtube{
+    color: rgb(255, 0, 0);
+    border-radius: 100%;
+    cursor: pointer
+}
+
+footer  h4{
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+@media (max-width:900px) and (min-width:600px){
+
+    /* .container .Home h2, */
+    .container .Mens_clothe .men_words h2,
+    .container .woman_sections .girls_section h2 {
+        font-size: 26px;
+    }
+
+    .container .Home p,
+    .container .Mens_clothe .men_words p,
+    .container .woman_sections .girls_section p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .container .Home a,
+    .container .Mens_clothe .men_words .men_but a,
+    .container .woman_sections .girls_section a {
+        font-size: 16px;
+    }
+
+    .container .Home,
+    .container .Mens_clothe .men_words,
+    .container .woman_sections .girls_section {
+        gap: 20px;
+    }
+
+    .container .Mens_clothe .men_image img,
+    .woman_sections .girls_image img{
+        border-radius: 50%;
+        margin-left: 15px;
+        height: 300px;
+    }
+    .container .Mens_clothe,
+    .container .woman_sections {
+        padding: 50px 35px;
+    }
+    footer .follow h4,footer .copy_rights h4,
+    footer .message h4{
+    font-size: 14px;
+}
+}
+
+@media (min-width:320px) and (max-width:600px)  {
+
+    .container .Home h2,
+    .container .Mens_clothe .men_words h2,
+    .container .woman_sections .girls_section h2  {
+        font-size: 16px;
+    }
+
+    .container .Home p,
+    .container .Mens_clothe .men_words p
+    ,.container .woman_sections .girls_section p {
+        font-size: 8px;
+    }
+
+    .container .Home a,
+    .container .Mens_clothe .men_words .men_but a,
+    .container .woman_sections .girls_section a {
+        font-size: 6px;
+        padding: 10px;
+    }
+    .container .Home,
+    .container .Mens_clothe .men_words,
+    .container .woman_sections .girls_section {
+        gap: 10px;
+    }
+    .container .Mens_clothe .men_image img,
+    .woman_sections .girls_image img {
+        height: 150px;
+    }
+    .container .Mens_clothe,
+    .container .woman_sections {
+        padding: 25px 15px;
+    }
+    nav .search_box {
+        display: none;
+    }
+    footer .message{
+        display: none;
+    }
+    footer .follow h4,footer .copy_rights h4,
+    footer .message h4{
+    font-size: 12px;
+}
+}
